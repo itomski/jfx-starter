@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 
 public class PrimaryController {
 
-    private List<String> kunden = new ArrayList<>();
+    private List<Kunde> kunden = new ArrayList<>();
 
     @FXML // Das Element aus der Oberfläche ist für Java verfügbar
     TextField vorname;
@@ -28,7 +28,7 @@ public class PrimaryController {
 
     @FXML
     private void speichern() throws IOException {
-        String kunde = vorname.getText() + " " + nachname.getText() + ", " + geburtsDatum.getValue();
+        Kunde kunde = new Kunde(vorname.getText(), nachname.getText(), geburtsDatum.getValue());
         kunden.add(kunde);
 
         updateOutput();
@@ -37,7 +37,7 @@ public class PrimaryController {
 
     private void updateOutput() {
         StringBuilder kundenSb = new StringBuilder();
-        for(String k : kunden) {
+        for(Kunde k : kunden) {
             kundenSb.append(k).append("\n");
         }
         ausgabe.setText(kundenSb.toString());
