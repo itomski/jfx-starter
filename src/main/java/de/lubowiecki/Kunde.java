@@ -1,8 +1,9 @@
 package de.lubowiecki;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Kunde {
+public class Kunde implements Serializable {
 
     private String vorname;
     private String nachname;
